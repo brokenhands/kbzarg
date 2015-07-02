@@ -17,7 +17,7 @@ _helper = objNull;
 _dist = 99999;
 
 {
-	if (!isPlayer _x && {side _x == _side} && {damage _x < 0.9} && {_x distanceSqr _caller < _dist} && {"FirstAidKit" in items _x || "Medikit" in items _x}) then {_helper = _x;_dist = _x distanceSqr _caller;};
+	if (!isPlayer _x && {side _x == _side} && {damage _x < 0.9} && {_x distanceSqr _caller < _dist} && {"FirstAidKit" in items _x || "Medikit" in items _x|| "ACE_epinephrine" in items _x}) then {_helper = _x;_dist = _x distanceSqr _caller;};
 	//diag_log format ["CHECKING %1: %2 %3 %4 %5 %6",_x,!isPlayer _x,side _x == _side,damage _x < 0.9,_x distanceSqr _caller < _dist,"FirstAidKit" in items _x || "Medikit" in items _x];
 } foreach _units;
 

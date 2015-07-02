@@ -26,3 +26,10 @@ _this setVariable ["btc_qr_side",_side];
 _this setVariable ["btc_qr_initialized",true];
 
 //titleText ["Finished ACEAIRevive ", "BLACK IN",10];
+
+while {true} do {
+    sleep 20;
+    if (player getvariable ["ACE_isUnconscious", false]) then {
+        [player] call btc_qr_fnc_call_for_help;
+    }
+};

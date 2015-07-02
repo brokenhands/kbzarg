@@ -17,9 +17,20 @@ while {Alive _unit && {Alive _helper} && {damage _unit > 0.25} && {damage _helpe
     hint format ["%1 helping %2", name _helper, name _unit];
 	if (_unit distance _helper < 2) then {
         _helper playMoveNow "AinvPknlMstpSnonWnonDnon_medic1";
-        _helper action ["HealSoldier",_unit];        
-        [_helper,_unit,""] execVM "\z\ACE3\addons\medical\functions\fnc_treatmentBasic_epipen.sqf";
+        //_helper action ["HealSoldier",_unit];        
+        //[_helper,_unit,""] execVM "\z\ACE3\addons\medical\functions\fnc_treatmentBasic_epipen.sqf";
+        //[_unit, false] call FUNC(setUnconscious);
+        _unit setVariable ["ACE_isUnconscious",false];
+        _unit setDamage 0.25;
+
+//        if (_unit getvariable [QGVAR(inReviveState), false]) then {
+//            _unit setvariable [QGVAR(inReviveState), nil, true];
+//        };
+        sleep 1;
+        _helper disableAI "ANIM";
+        _helper removeItem "ACE_epinephrine";
     };
+    sleep 1;
 };
 
 
